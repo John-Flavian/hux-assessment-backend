@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: bitnami/mongodb:7.0
+
+    ports:
+      - '27017:27017'
+
+    environment:
+      # - MONGODB_ROOT_USER=root
+      # - MONGODB_ROOT_PASSWORD=password123
+      - MONGO_INITDB_DATABASE=contact-manager
+
+    volumes:
+      - mongodb_data:/bitnami/mongodb
+    networks:
+      - contact-manager-api-service
+
+volumes:
+  mongodb_data:
+    driver: local
+
+networks:
+  contact-manager-api-service:
+    driver: bridge
