@@ -8,7 +8,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "dock:up": "docker compose up -d"
+    "dock:up": "docker compose up -d",
+    "dock:down": "docker compose down"
   },
   "keywords": [
     "contact",
