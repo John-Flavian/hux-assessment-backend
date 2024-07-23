@@ -19,4 +19,9 @@ router.post("/login", Auth.login);
 // @access    Private (users)
 router.get("/me", authProtect, Auth.getProfile);
 
+// @desc      register user
+// @route     POST /api/auth/logout
+// @access    Private (users)
+router.post("/logout", authProtect, Auth.logout);
+
 export default router;

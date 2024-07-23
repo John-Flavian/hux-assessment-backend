@@ -41,7 +41,6 @@ class Auth {
       const payload = {
         user: {
           _id: user._id,
-          email: user.email,
         },
       };
 
@@ -54,7 +53,7 @@ class Auth {
         message: "User registration successful.",
         data: {
           ...user._doc,
-          token,
+          accessToken: token,
         },
       });
     } catch (error) {
@@ -86,7 +85,6 @@ class Auth {
       const token = await Auth._generateToken({
         user: {
           _id: user._id,
-          email: user.email,
         },
       });
 
@@ -97,7 +95,7 @@ class Auth {
         message: "User login successful.",
         data: {
           ...user._doc,
-          token,
+          accessToken: token,
         },
       });
     } catch (error) {
@@ -121,6 +119,15 @@ class Auth {
         message: "User Data Found.",
         data: user,
       });
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  static async logout(req, res, next) {
+    try {
+      req.user = null;
+      res.status(200).json({ message: "Logout successful." });
     } catch (error) {
       next(error);
     }
