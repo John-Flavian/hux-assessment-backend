@@ -1,0 +1,15 @@
+node_modules
+package-lock.json
+.env
+.prettierrc
+.vscode
+docker-compose.yml
+access.log
+
+test.js
+
+.DS_Store
+
+.DS_Store
+
+/build
